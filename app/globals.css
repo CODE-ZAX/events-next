@@ -1,27 +1,51 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+#react-select-3-listbox {
+  z-index: 9999;
+}
+* {
+  font-family: "Poppins", sans-serif;
+}
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #023047;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #023047dd;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px; /* initial position, hidden off the view */
+  width: 250px;
+  height: 100%;
+  background-color: white;
+  transition: left 0.3s ease-out;
+  z-index: 999; /* ensure it appears on top */
+  overflow-y: auto; /* add a scrollbar if the content is too long */
+}
+
+.sidebar.open {
+  left: 0; /* position when sidebar is open */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  padding: 20px;
 }
